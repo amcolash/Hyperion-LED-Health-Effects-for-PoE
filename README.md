@@ -1,3 +1,14 @@
+Hyperion LED Health Effects for PoE
+=======================
+This is a Hyperion Effect that I made for PoE. It allows you to keep track of your HP from your backlight. I have bundled part of the [Hyperion SDK](https://github.com/Fabi1080/hyperion_effects_dev_kit) to make this simpler to create / consume.
+
+To run:
+- Download theis repository
+- Modify `main.py` to match your hyperion server config + led numbers + offsets
+- Run `main.py`
+- Enjoy backlighting for your health from your LEDS
+
+=======================
 hyperion_effects_dev_kit
 =======================
 

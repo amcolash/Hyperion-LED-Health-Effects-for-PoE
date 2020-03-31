@@ -80,6 +80,9 @@ def set_color(led_data):
 def setColor(led_data):
     set_color(led_data)
 
+def clear():
+	json_client.clear_effect()
+
 """ cant overload functions in python """
 # def setColor(red, green, blue):
 #     acquire_lock()

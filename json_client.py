@@ -10,7 +10,7 @@ import socket
 
 s = None
 connected = False
-
+priority = 10
 
 def open_connection(host, port, timeout=10):
     """
@@ -43,6 +43,19 @@ def close_connection():
             print "Could not close socket connection\nMessage: ", exc
 
 
+def clear_effect():
+    """
+    Clear the led data in a message format the hyperion json server understands
+    """
+    if not connected:
+        return
+    # create a message to send
+    message = '{"command":"clear","priority":' + str(priority) + '}\n'
+    try:
+        s.send(message)
+    except socket.error, exc:
+        print "Error while clearing the led data\nMessage: ", exc
+
 def send_led_data(led_data):
     """
     Send the led data in a message format the hyperion json server understands
@@ -59,7 +72,7 @@ def send_led_data(led_data):
         if not i == len(led_data) - 1:
             message += ','
     # complete message
-    message += '],"command":"color","priority":100}\n'
+    message += '],"command":"color","priority":' + str(priority) + '}\n'
     try:
         s.send(message)
     except socket.error, exc:
